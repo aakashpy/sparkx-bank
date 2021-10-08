@@ -1,0 +1,16 @@
+.navlink:hover{
+    color:white;
+}
+@media(min-width:1024px){
+#navbarSupportedContent{
+    position:relative;
+}
+#create_user{
+    position:absolute;
+    right:80px;
+}
+#login{
+    position:absolute;
+    right:0px;
+}
+}

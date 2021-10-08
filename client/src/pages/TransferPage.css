@@ -1,0 +1,95 @@
+#header{
+    text-align: center;
+    background-color:rgb(252, 199, 134);
+}
+.card{
+    margin:10px;
+    align-items: center;
+    position:relative;
+    border-radius:5px;
+    border:1px solid;
+    border-color: black;
+    background-color:#E3E3E3;
+}
+
+@media (max-width: 500px) {
+    #header{
+        margin-top: 6px;
+        margin-right: 40px;
+        margin-left:40px;
+        border: 2px solid ;
+        border-color: black;
+        padding: 5px;
+       
+    }
+
+    p{
+        margin-bottom: 8px;
+    }
+    #info1{
+        width:139px;
+        padding:0px;
+        text-align: left;
+    }
+    #info2{
+        width:auto;
+        text-align: center;
+        padding:0;
+    }
+    
+}
+@media (min-width: 768px) {
+    #header{
+        margin-top: 6px;
+        margin-right: 110px;
+        margin-left:110px;
+        border: 2px solid ;
+        border-color: black;
+        border-radius: 5px;
+        padding: 5px;
+    }
+
+    p{
+        margin-bottom: 8px;
+    }
+    #info1{
+        width:160px;
+        padding-right: 0;
+    }
+    #info2{
+        width:100px;
+        padding-left:0;
+    }
+}
+  
+@media (min-width: 1024px) {
+    #header{
+        margin-top: 6px;
+        margin-right: 230px;
+        margin-left:230px;
+        border: 2px solid ;
+        border-color: black;
+        padding: 5px;
+    }
+
+    p{
+        margin-bottom: 4px;
+    }
+    #info1{
+        width:145px;
+        padding:0px;
+    }
+    #info2{
+        width:80px;
+        padding:0px;
+    }
+
+}
+@media(min-width:1440px){
+    #info1{
+        width:195px;
+    }
+    #info2{
+        width:140px;
+    }
+}

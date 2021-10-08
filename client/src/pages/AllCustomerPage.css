@@ -1,0 +1,31 @@
+.flex-container {
+    display: flex;
+    flex-flow:row wrap;
+  }
+  
+  .flex-container > div {
+    background-color: #f1f1f1;
+    margin: 10px;
+    padding: 10px;
+    width:360px;
+    text-align:center;
+  }
+  @media (min-width: 375px) {}
+  @media (min-width: 425px) {
+      .flex-container > div{
+          width:390px;
+        }
+    }
+  @media (min-width: 768px) {
+      .flex-container > div{
+    width:225px;
+  }
+}
+  @media (min-width: 1024px) {  .flex-container > div{
+    width:310px;
+  }}
+  @media (min-width: 1440px) {
+    .flex-container > div{
+        width:445px;
+      }
+  }
