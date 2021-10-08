@@ -4,9 +4,9 @@ import TransferPage from '../pages/TransferPage'
 
 const Transfers = (props) => {
     const [transfers, settransfers] = useState([])
-    const instance = axios.create({ baseURL: 'http://localhost:5000/' });
+    //const instance = axios.create({ baseURL: 'http://localhost:5000/' });
     useEffect(() => {
-        instance.get("transfers/")
+        axios.get("transfers/")
             .then(res => {
                 settransfers(res.data)
             })
