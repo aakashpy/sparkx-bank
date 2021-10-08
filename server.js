@@ -14,7 +14,9 @@ mongoose.connect(uri,{useNewUrlParser:true,useUnifiedTopology: true,
     });
 
 const app = express()
-
+//API
+const Customers = require("./API/customers")
+const Transfers = require("./API/transfers")
 app.use(cors());
 app.use(express.json());
 //Serve Static asset if we are in production
@@ -23,12 +25,12 @@ if(process.env.NODE_ENV === "production"){
     app.get('*',(req,res) => {
         res.sendFile(path.resolve(__dirname,'client','build','index.html'))
     })
+    app.use("/customers",Customers);
+    app.use("/transfers",Transfers);
 }
 app.use(express.static("public"))
 
-//API
-const Customers = require("./API/customers")
-const Transfers = require("./API/transfers")
+
 //MICROSERVICES
 app.use("/customers",Customers);
 app.use("/transfers",Transfers);

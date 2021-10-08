@@ -4,7 +4,8 @@ import TransferPage from '../pages/TransferPage'
 
 const Transfers = (props) => {
     const [transfers, settransfers] = useState([])
-    const instance = axios.create({ baseURL: 'http://localhost:5000/' });
+    //const instance = axios.create({ baseURL: 'http://localhost:5000/' });
+    const instance = axios.create({ baseURL: 'https://sparkx-bank.herokuapp.com/' });
     useEffect(() => {
         instance.get("transfers/")
             .then(res => {
