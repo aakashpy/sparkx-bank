@@ -5,8 +5,8 @@ import axios from 'axios'
 import CustomerDetailsPage from '../pages/CustomerDetailsPage'
 
 const CustomerDetails = props => {
-    //const instance = axios.create({ baseURL: 'http://localhost:5000/' });
-    const instance = axios.create({ baseURL: 'https://sparkx-bank.herokuapp.com/' });
+    const instance = axios.create({ baseURL: 'http://localhost:5000/' });
+    //const instance = axios.create({ baseURL: 'https://sparkx-bank.herokuapp.com/' });
     let history = useHistory();
     const allusers=[]
     var path1 = `customers/getuser/${props.data}`

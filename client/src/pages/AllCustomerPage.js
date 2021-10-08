@@ -7,8 +7,7 @@ const AllCustomersPage = (props) => {
     localStorage.clear();
     const [customers, setcustomers] = useState([])
     useEffect(() => {
-        //const instance = axios.create({ baseURL: 'http://localhost:5000/' });
-    const instance = axios.create({ baseURL: 'https://sparkx-bank.herokuapp.com/' });
+        const instance = axios.create({ baseURL: 'http://localhost:5000/' });
         instance.get("/customers")
             .then(res => {
                 setcustomers(res.data)
