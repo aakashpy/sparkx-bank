@@ -6,7 +6,7 @@ const Transfers = (props) => {
     const [transfers, settransfers] = useState([])
     //const instance = axios.create({ baseURL: 'http://localhost:5000/' });
     useEffect(() => {
-        axios.get("/api/transfers/")
+        axios.get("/api/transfers")
             .then(res => {
                 settransfers(res.data)
             })
