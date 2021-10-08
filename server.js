@@ -22,19 +22,19 @@ app.use(express.json());
 //Serve Static asset if we are in production
 if(process.env.NODE_ENV === "production"){
     app.use(express.static('client/build'));
-    app.get('*',(req,res) => {
+    app.get(/^((?!(api)).)*$/,(req,res) => {
         res.sendFile(path.resolve(__dirname,'client','build','index.html'))
     })
-    app.use("/customers",Customers);
-    app.use("/transfers",Transfers);
+    app.use("/api/customers",Customers);
+    app.use("/api/transfers",Transfers);
 }
 app.use(express.static("public"))
 
 
 //MICROSERVICES
-app.use("/customers",Customers);
-app.use("/transfers",Transfers);
-app.get("/", (request, response) => {
+app.use("/api/customers",Customers);
+app.use("/api/transfers",Transfers);
+app.get("/api/", (request, response) => {
     response.json({ message: "Server is working!!!!!!" });
 });
 
