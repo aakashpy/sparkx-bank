@@ -4,6 +4,7 @@ import HomePage from './pages/HomePage'
 import AllCustomersPage from './pages/AllCustomerPage'
 import Transfers from './components/Transfers'
 import CustomerDetails from './components/CustomerDetails'
+import About from './pages/About'
 import Navbar from './FixComponents/Navbar'
 
 function App() {
@@ -17,6 +18,9 @@ function App() {
     {
         linkpath:"/transfers",
         linkname:"Transactions"
+    },{
+        linkpath:"/about",
+        linkname:"About"
     }
 ]
   
@@ -31,6 +35,8 @@ function App() {
         render={()=><CustomerDetails data = {user} navbar = {<Navbar links={links}/>} />}/>
         <Route path="/transfers" exact 
         render={()=><Transfers navbar = {<Navbar links={links}/>} />}/>
+        <Route path="/about" exact 
+        render={()=><About navbar = {<Navbar links={links}/>} />}/>
       </Switch>
     </Router>
   );
