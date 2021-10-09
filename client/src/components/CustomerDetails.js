@@ -5,22 +5,21 @@ import axios from 'axios'
 import CustomerDetailsPage from '../pages/CustomerDetailsPage'
 
 const CustomerDetails = props => {
-    const instance = axios.create({ baseURL: 'http://localhost:5000/' });
     //const instance = axios.create({ baseURL: 'https://sparkx-bank.herokuapp.com/' });
     let history = useHistory();
     const allusers=[]
-    var path1 = `customers/getuser/${props.data}`
-    var path2 = `transfers/usertransaction/${props.data}`
-    var path3 = `transfers/receivedtransactions/${props.data}`
-    var path4 = `customers/`
+    var path1 = `/api/customers/getuser/${props.data}`
+    var path2 = `/api/transfers/usertransaction/${props.data}`
+    var path3 = `/api/transfers/receivedtransactions/${props.data}`
+    var path4 = `/api/customers/`
     var nameToRemove = props.data
 
     var receivers = {}
     const storedUser = localStorage.getItem("username")
     if (storedUser) {
-        path1 = `customers/getuser/${storedUser}`
-        path2 = `transfers/usertransaction/${storedUser}`
-        path3 = `transfers/receivedtransactions/${storedUser}`
+        path1 = `/api/customers/getuser/${storedUser}`
+        path2 = `/api/transfers/usertransaction/${storedUser}`
+        path3 = `/api/transfers/receivedtransactions/${storedUser}`
         nameToRemove = storedUser
         localStorage.setItem("username", storedUser)
     }
@@ -32,7 +31,7 @@ const CustomerDetails = props => {
     }
     const [alluser,setalluser] = useState([])
     useEffect(()=>{
-        instance.get(path4)
+        axios.get(path4)
         .then(res=>{
             setalluser(
                 res.data=res.data.filter((item)=>item.name!==nameToRemove)
@@ -43,7 +42,7 @@ const CustomerDetails = props => {
     
     const [user, setuser] = useState([])
     useEffect(() => {
-        instance.get(path1)
+        axios.get(path1)
             .then(res => {
                 setuser(res.data)
             })
@@ -53,7 +52,7 @@ const CustomerDetails = props => {
     }, [])
     const [transfers, settransfers] = useState([])
     useEffect(() => {
-        instance.get(path2)
+        axios.get(path2)
             .then(res => {
                 settransfers(res.data)
             })
@@ -63,7 +62,7 @@ const CustomerDetails = props => {
     }, [])
     const [receivedTransactions, settransactions] = useState([])
     useEffect(() => {
-        instance.get(path3)
+        axios.get(path3)
             .then(res => {
                 settransactions(res.data)
             })
@@ -86,7 +85,7 @@ const CustomerDetails = props => {
             var debit_Amount = {
                 amount: debit_amount
             }
-            instance.put(`customers/update/${user._id}`, debit_Amount)
+            axios.put(`/api/customers/update/${user._id}`, debit_Amount)
                 .then(res => res.data)
             receiver();
         }
@@ -95,7 +94,7 @@ const CustomerDetails = props => {
         }
     }
     function receiver() {
-        instance.get(`customers/getuser/${values.name}`)
+        axios.get(`/api/customers/getuser/${values.name}`)
             .then(res => {
                 receivers = res.data
                 if (receivers.error) {
@@ -118,7 +117,7 @@ const CustomerDetails = props => {
         var credit_Amount = {
             amount: credit_amount
         }
-        instance.put(`customers/update/${receivers._id}`, credit_Amount)
+        axios.put(`/api/customers/update/${receivers._id}`, credit_Amount)
             .then(res => res.data)
         newtransfer();
     }
@@ -137,7 +136,7 @@ const CustomerDetails = props => {
             amount: values.amount,
             date: current_date
         }
-        instance.post('transfers/add', newtransfer)
+        axios.post('/api/transfers/add', newtransfer)
             .then(res => res.data)
         alert("Transaction Successfull");
         history.push('/customers')

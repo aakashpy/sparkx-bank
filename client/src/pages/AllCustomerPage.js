@@ -7,8 +7,8 @@ const AllCustomersPage = (props) => {
     localStorage.clear();
     const [customers, setcustomers] = useState([])
     useEffect(() => {
-        const instance = axios.create({ baseURL: 'http://localhost:5000/' });
-        instance.get("/customers")
+        // const instance = axios.create({ baseURL: 'http://localhost:5000/' });
+        axios.get("/api/customers")
             .then(res => {
                 setcustomers(res.data)
             })
