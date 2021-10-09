@@ -124,17 +124,19 @@ const CustomerDetails = props => {
     
     function newtransfer() {
         var today = new Date();
-        if(today.getMinutes()<10){
-            var current_date = String((today.getDate()) + '-' + (today.getMonth() + 1) + '-' + today.getFullYear() + ' ' + today.getHours() + ':' +'0'+ today.getMinutes() + ':' + today.getSeconds());
-        }else{
-            var current_date = String((today.getDate()) + '-' + (today.getMonth() + 1) + '-' + today.getFullYear() + ' ' + today.getHours() + ':' + today.getMinutes() + ':' + today.getSeconds());
-        }
+        const date_locale = today.toLocaleDateString('en-GB', {
+            day: 'numeric',
+            month: 'numeric',
+            year: 'numeric'
+          });
+        const time_locale = today.toLocaleTimeString('en-GB');
         
         const newtransfer = {
             sender_name: user.name,
             receiver_name: values.name,
             amount: values.amount,
-            date: current_date
+            date: date_locale,
+            time: time_locale,
         }
         axios.post('/api/transfers/add', newtransfer)
             .then(res => res.data)

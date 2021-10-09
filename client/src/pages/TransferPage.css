@@ -34,7 +34,7 @@
     #info2{
         width:auto;
         text-align: center;
-        padding:0;
+        margin-left:10px;
     }
     
 }
@@ -76,11 +76,12 @@
         margin-bottom: 4px;
     }
     #info1{
-        width:145px;
+        width:141px;
         padding:0px;
+        margin-left:-6px;
     }
     #info2{
-        width:80px;
+        width:84px;
         padding:0px;
     }
 

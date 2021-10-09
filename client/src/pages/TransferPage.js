@@ -38,10 +38,18 @@ const TransferPage = (props) => {
                                     </div>
                                     <div className="row"style={{margin:"0px"}}>
                                         <div className="col-sm-8 col-md-7"id="info1">
-                                            <h6>Date/Time</h6>
+                                            <h6>Date</h6>
                                         </div>
                                         <div className="col-sm-4 col-md-5"id="info2">
-                                            <p>{transfer.date.slice(0,25)}</p>
+                                            <p>{transfer.date}</p>
+                                        </div>
+                                    </div>
+                                    <div className="row"style={{margin:"0px"}}>
+                                        <div className="col-sm-8 col-md-7"id="info1">
+                                            <h6>Time</h6>
+                                        </div>
+                                        <div className="col-sm-4 col-md-5"id="info2">
+                                            <p>{transfer.time}</p>
                                         </div>
                                     </div>
                                 </div>
