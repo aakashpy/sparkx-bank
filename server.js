@@ -5,8 +5,9 @@ const mongoose = require('mongoose');
 const path = require('path')
 
 const uri = process.env.ATLAS_URI;
+
 const PORT = process.env.PORT || 5000;
-mongoose.connect(uri,{useNewUrlParser:true,useUnifiedTopology: true,
+mongoose.connect(String(uri),{useNewUrlParser:true,useUnifiedTopology: true,
     })
     .then(() => console.log("connection extablished!"))
     .catch((err) => {
