@@ -6,7 +6,7 @@ const CustomerDetailsPage = (props) => {
     var sent_transaction_script = ''
     var received_transaction_script = ''
     if ('error' in props.data2 || props.data2.lenght === 0) {
-        sent_transaction_script = <h3 className="text-center" style={{ color: "black" }}>No transaction done from the user</h3>
+        sent_transaction_script = <h4 className="text-center" style={{ color: "black" }}>No transaction done from the user</h4>
     }
     else {
 
@@ -20,7 +20,7 @@ const CustomerDetailsPage = (props) => {
 
     }
     if ('error' in props.data3 || props.data3.lenght === 0) {
-        received_transaction_script = <h3 className="text-center" style={{ color: "black" }}>No transaction received</h3>
+        received_transaction_script = <h4 className="text-center" style={{ color: "black" }}>No transaction received</h4>
     }
     else {
         received_transaction_script = received_transactions.map((transaction) => (
@@ -32,7 +32,7 @@ const CustomerDetailsPage = (props) => {
         ))
     }
     if ('error' in props.data2 || props.data2.lenght === 0) {
-        sent_transaction_script = <h3 className="text-center" style={{ color: "black" }}>No transaction done from the user</h3>
+        sent_transaction_script = <h4 className="text-center" style={{ color: "black" }}>No transaction done from the user</h4>
     }
     else {
         sent_transaction_script = transfers.map((transfer) => (
@@ -44,7 +44,7 @@ const CustomerDetailsPage = (props) => {
         ))
     }
     if ('error' in props.data3 || props.data3.lenght === 0) {
-        received_transaction_script = <h3 className="text-center" style={{ color: "black" }}>No transaction received</h3>
+        received_transaction_script = <h4 className="text-center" style={{ color: "black" }}>No transaction received</h4>
     }
     else {
         received_transaction_script = received_transactions.map((transaction) => (
