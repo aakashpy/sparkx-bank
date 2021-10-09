@@ -71,7 +71,7 @@ const CustomerDetailsPage = (props) => {
                             </tr>
                             <tr>
                                 <td> <h3>Total Balance </h3></td>
-                                <td><h4 className="text-center">{props.data.amount}</h4></td>
+                                <td><h4 className="text-center">{props.data.amount} Rs/-</h4></td>
                             </tr>
                         </tbody>
                     </table>
