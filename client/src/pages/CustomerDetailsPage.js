@@ -6,7 +6,7 @@ const CustomerDetailsPage = (props) => {
     var sent_transaction_script = ''
     var received_transaction_script = ''
     if ('error' in props.data2 || props.data2.lenght === 0) {
-        sent_transaction_script = <h4 className="text-center" style={{ color: "black" }}>No transaction done from the user</h4>
+        sent_transaction_script = <td colspan="3"><h4 className="text-center" style={{ color: "white" }}>No transaction done from the user</h4></td>
     }
     else {
 
@@ -20,7 +20,7 @@ const CustomerDetailsPage = (props) => {
 
     }
     if ('error' in props.data3 || props.data3.lenght === 0) {
-        received_transaction_script = <h4 className="text-center" style={{ color: "black" }}>No transaction received</h4>
+        received_transaction_script = <td colspan="3"><h4 className="text-center" style={{ color: "white" }}>No transaction received</h4></td>
     }
     else {
         received_transaction_script = received_transactions.map((transaction) => (
@@ -32,7 +32,7 @@ const CustomerDetailsPage = (props) => {
         ))
     }
     if ('error' in props.data2 || props.data2.lenght === 0) {
-        sent_transaction_script = <h4 className="text-center" style={{ color: "black" }}>No transaction done from the user</h4>
+        sent_transaction_script = <td colspan="3"><h4 className="text-center" style={{ color: "white" }}>No transaction done from the user</h4></td>
     }
     else {
         sent_transaction_script = transfers.map((transfer) => (
@@ -44,7 +44,7 @@ const CustomerDetailsPage = (props) => {
         ))
     }
     if ('error' in props.data3 || props.data3.lenght === 0) {
-        received_transaction_script = <h4 className="text-center" style={{ color: "black" }}>No transaction received</h4>
+        received_transaction_script = <td colspan="3"><h4 className="text-center" style={{ color: "white" }}>No transaction received</h4></td>
     }
     else {
         received_transaction_script = received_transactions.map((transaction) => (
@@ -86,7 +86,7 @@ const CustomerDetailsPage = (props) => {
             <div className="container-fluid">
                 <div className="row">
                     <div className="col-sm-12 col-md-6 table-responsive">
-                        <h2 className="text-center">Your Transcations</h2>
+                        <h2 className="text-center"style={{border:"2px solid black"}}>Your Transcations</h2>
                         <table className="table table-dark table-striped table-hover text-center">
                             <thead>
                                 <tr>
@@ -101,7 +101,7 @@ const CustomerDetailsPage = (props) => {
                         </table>
                     </div>
                     <div className="col-sm-12 col-md-6 table-responsive">
-                        <h2 className="text-center">Received Transactions</h2>
+                        <h2 className="text-center"style={{border:"2px solid black"}}>Received Transactions</h2>
                         <table className="table table-dark table-striped table-hover text-center">
                             <thead>
                                 <tr>
